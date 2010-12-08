@@ -1,5 +1,6 @@
 import odesk
 from datetime import date, datetime as dt
+import pprint
 
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
@@ -45,6 +46,7 @@ def api(request):
         class_to_call = getattr(client, apiclass.name)
         function_to_call = getattr(class_to_call, apifunc.name)
         response = function_to_call(**apiparams)
+        response = pprint.pformat(response, width=120)
         form = ApiTestForm()
         return {'form': form,
                 'response': response}
