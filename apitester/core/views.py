@@ -45,7 +45,10 @@ def api(request):
         
         class_to_call = getattr(client, apiclass.name)
         function_to_call = getattr(class_to_call, apifunc.name)
-        response = function_to_call(**apiparams)
+        try:
+            response = function_to_call(**apiparams)
+        except Exception, e:
+            response = "The API call raised an exception:\n" + str(e)
         form = ApiTestForm()
         return {'form': form,
                 'response': response}
