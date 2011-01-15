@@ -5,7 +5,11 @@
     {{ param }}: {{ param.param }}| 
 {% endfor %}
 </h6>
+{% if exception %}
+<div class="response-exception">
+{% else %}
 <div class="response-result">
+{% endif %}
 {{ response }}
 </div>
 </li>

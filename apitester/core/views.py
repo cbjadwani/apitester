@@ -76,11 +76,13 @@ def submitform(request, pk):
             response = function_to_call(**apiparams)
             form = ApiTestForm()
             return {'response': response,
+                    'exception': False,
                     'class': apiclass,
                     'function': api_function,
                     'params': apiparams}        
         except Exception, e:
             return {'response': e,
+                    'exception': True,
                     'class': apiclass,
                     'function': api_function,
                     'params': apiparams}        

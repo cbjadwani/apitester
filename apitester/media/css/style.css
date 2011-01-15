@@ -393,6 +393,9 @@
 .response-result {
     background-color: #fff193;
 }
+.response-exception {
+    background-color: #ffa080;
+}
 #id_ajax_load {
     text-align: center;
 }
